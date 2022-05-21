@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
     // Private variables
     private Rigidbody2D _rigidbody2D;
     private float _thrust = 0.0f;        // (Thrust = Impulso)
-    private float _thrustSpeed = 2.0f; 
+    private float _thrustSpeed = 3.0f; 
     private float _torque = 0.0f;
     private float _torqueSpeed = 0.1f;
 
@@ -31,10 +31,10 @@ public class Player : MonoBehaviour
 
         // Check  left arrow for positive torque
         if(Input.GetKey(KeyCode.LeftArrow))
-            _torque = -1.0f;
+            _torque = 1.0f;
         // Check right arrow negative torque
         else if(Input.GetKey(KeyCode.RightArrow))
-            _torque = 1.0f;
+            _torque = -1.0f;
         // If neither is pressed, torque is off
         else
             _torque = 0.0f;
