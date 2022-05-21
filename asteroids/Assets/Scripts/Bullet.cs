@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     // Private variables
     private Rigidbody2D _rigidbody;
 
-    // Public variables
+    // Public variables (need "this." when using)
     public float bulletSpeed = 500.0f;
     public float maxLifeTime = 10.0f;
 
