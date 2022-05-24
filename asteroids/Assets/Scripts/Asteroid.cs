@@ -11,6 +11,8 @@ public class Asteroid : MonoBehaviour
     public float size = 1.0f;
     public float minSize = 0.5f;
     public float maxSize = 1.5f;
+    public float speed = 10.0f;
+    public float maxLifeTime = 30.0f;
 
     // Awake is called at load time
     private void Awake() 
@@ -33,7 +35,14 @@ public class Asteroid : MonoBehaviour
         // Vector3.one * this.size = new Vector3(this.size,this.size,this.size)
         this.transform.localScale = Vector3.one * this.size;
         _rigidbody.mass = this.size;
+    }
 
-        
+
+    public void SetTrajectory(Vector2 direction)
+    {
+        // Add force to expecific direction 
+        _rigidbody.AddForce(direction * this.speed);
+        // Destroy game object after maxLifeTime
+        Destroy(this.gameObject, this.maxLifeTime);
     }
 }

@@ -34,10 +34,20 @@ public class AsteroidSpawner : MonoBehaviour
 
             // Random rotation in Z axis using variance
             float variance = Random.Range(-this.spawnTrajectoryVariance, this.spawnTrajectoryVariance);
+            Debug.Log("Rotation variance value = " + variance);
             Quaternion spawnRotation = Quaternion.AngleAxis(variance, Vector3.forward);
+            Debug.Log("Spawn rotation value = " + spawnRotation);
 
             // Instantiate asteroid
             Asteroid asteroid = Instantiate(asteroidPrefab, spawnPoint, spawnRotation);
+
+            // Randomize size
+            float size = Random.Range(asteroid.minSize, asteroid.maxSize);
+            Debug.Log("Spawn size value = " + size);
+            asteroid.size = size;
+
+            // Set trajectory pointed to negative spawn direction
+            asteroid.SetTrajectory(spawnRotation * -spawnDirection);
         }
     }
 
