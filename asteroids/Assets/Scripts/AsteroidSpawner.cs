@@ -6,7 +6,9 @@ public class AsteroidSpawner : MonoBehaviour
     public Asteroid asteroidPrefab;
     public float spawnRate = 2.0f;
     public float spawnDistance = 15.0f;
+    public float spawnTrajectoryVariance = 15.0f;
     public int spawnAmount = 3;
+    
 
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class AsteroidSpawner : MonoBehaviour
         // Instantiate multiples asteroids
         for(int i = 0 ; i < this.spawnAmount ; i++)
         {
+            // Random position using insideUnitCircle normilized 
             Vector3 random = Random.insideUnitCircle.normalized;
             Debug.Log("Random value = " + random);
             Vector3 spawnDirection = random * this.spawnDistance;
@@ -29,7 +32,9 @@ public class AsteroidSpawner : MonoBehaviour
             Vector3 spawnPoint = this.transform.position + spawnDirection;
             Debug.Log("Spawn point value = " + spawnPoint);
 
-            Quaternion spawnRotation = Quaternion.identity;
+            // Random rotation in Z axis using variance
+            float variance = Random.Range(-this.spawnTrajectoryVariance, this.spawnTrajectoryVariance);
+            Quaternion spawnRotation = Quaternion.AngleAxis(variance, Vector3.forward);
 
             // Instantiate asteroid
             Asteroid asteroid = Instantiate(asteroidPrefab, spawnPoint, spawnRotation);
