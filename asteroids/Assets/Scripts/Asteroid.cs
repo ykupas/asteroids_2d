@@ -46,6 +46,7 @@ public class Asteroid : MonoBehaviour
             // Check if asteroid size has at least 2 minSize asteroids
             if((this.size * 0.5f) >= this.minSize)
             {
+                // Create 2 halfs of asteroid
                 CreateSplit();
                 CreateSplit();
             }
@@ -58,7 +59,12 @@ public class Asteroid : MonoBehaviour
     // when it has at least 2 minSize asteroids size
     private void CreateSplit()
     {
-
+        // Spawn a new asteroid with new position, 
+        // same rotation, half size and random trajectory
+        Vector2 position = this.transform.position + Random.insideUnitCircle * 0.5f;
+        Asteroid half = Instantiate(this, position, this.position.rotation);
+        half.size = this.size * 0.5f;
+        half.SetTrajectory(Random.insideUnitCircle.normalized);
     }
 
     // Give the trajectory a direction
