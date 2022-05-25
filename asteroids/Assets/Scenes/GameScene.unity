@@ -325,7 +325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thrustSpeed: 3
-  _torqueSpeed: 0.1
+  _torqueSpeed: 0.2
   bulletPrefab: {fileID: -5614717332210014199, guid: 454d08d7a58c3544b82eec20a5dd3e3c, type: 3}
 --- !u!1 &319257087
 GameObject:
@@ -554,10 +554,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 5401361690750235888, guid: f9a6e0d2f5cbaaf4b938f4346386e231, type: 3}
-  spawnRate: 2
+  spawnRate: 3
   spawnDistance: 15
   spawnTrajectoryVariance: 15
-  spawnAmount: 3
+  spawnAmount: 2
 --- !u!4 &1461031544
 Transform:
   m_ObjectHideFlags: 0

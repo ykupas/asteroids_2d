@@ -11,7 +11,7 @@ public class Asteroid : MonoBehaviour
     public float size = 1.0f;
     public float minSize = 0.5f;
     public float maxSize = 2.0f;
-    public float speed = 10.0f;
+    public float speed = 7.0f;
     public float maxLifeTime = 30.0f;
 
     // Awake is called at load time
@@ -61,10 +61,10 @@ public class Asteroid : MonoBehaviour
     {
         // Spawn a new asteroid with new position, 
         // same rotation, half size and random trajectory
-        Vector2 position = this.transform.position + Random.insideUnitCircle * 0.5f;
-        Asteroid half = Instantiate(this, position, this.position.rotation);
+        Vector2 position = (Vector2)this.transform.position + Random.insideUnitCircle * 0.5f;
+        Asteroid half = Instantiate(this, position, this.transform.rotation);
         half.size = this.size * 0.5f;
-        half.SetTrajectory(Random.insideUnitCircle.normalized);
+        half.SetTrajectory(Random.insideUnitCircle.normalized * this.speed);
     }
 
     // Give the trajectory a direction

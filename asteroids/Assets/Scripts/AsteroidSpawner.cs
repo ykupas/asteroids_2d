@@ -4,10 +4,10 @@ public class AsteroidSpawner : MonoBehaviour
 {
     // Public variables
     public Asteroid asteroidPrefab;
-    public float spawnRate = 2.0f;
+    public float spawnRate = 3.0f;
     public float spawnDistance = 15.0f;
     public float spawnTrajectoryVariance = 15.0f;
-    public int spawnAmount = 3;
+    public int spawnAmount = 2;
     
 
 
