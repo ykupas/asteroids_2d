@@ -10,7 +10,7 @@ public class Asteroid : MonoBehaviour
     public Sprite[] sprites;
     public float size = 1.0f;
     public float minSize = 0.5f;
-    public float maxSize = 1.5f;
+    public float maxSize = 2.0f;
     public float speed = 10.0f;
     public float maxLifeTime = 30.0f;
 
@@ -37,7 +37,31 @@ public class Asteroid : MonoBehaviour
         _rigidbody.mass = this.size;
     }
 
+    // Function called when collides with something
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        // Collision with bullets tag
+        if(other.gameObject.tag == "Bullet")
+        {
+            // Check if asteroid size has at least 2 minSize asteroids
+            if((this.size * 0.5f) >= this.minSize)
+            {
+                CreateSplit();
+                CreateSplit();
+            }
+            // Destroy actual asteroid
+            Destroy(this.gameObject);
+        }
+    }
 
+    // Creating asteroid split task to divide asteroid
+    // when it has at least 2 minSize asteroids size
+    private void CreateSplit()
+    {
+
+    }
+
+    // Give the trajectory a direction
     public void SetTrajectory(Vector2 direction)
     {
         // Add force to expecific direction 
