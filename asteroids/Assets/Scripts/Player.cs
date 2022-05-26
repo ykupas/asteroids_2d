@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // Check up arrow for forward thrust
         if(Input.GetKey(KeyCode.UpArrow))
@@ -60,6 +60,20 @@ public class Player : MonoBehaviour
         // Add torque when it is on
         if(_torque != 0.0f)
             _rigidbody.AddTorque(_torque * this._torqueSpeed);   
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        // Check tag to find asteroid
+        if(other.gameObject.tag == "Asteroid"){
+            // Reseting speed
+            _ridigbody.velocity = Vector3.zero;
+            _ridigbody.angulaVelocity = 0.0f;
+            // Tell game manager that it died
+            // TODO
+            // Inactivate player 
+            this.gameObject.SetActive(false);
+        }        
     }
 
     // Shooting bullets task
