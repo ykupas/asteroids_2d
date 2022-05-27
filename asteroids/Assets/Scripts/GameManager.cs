@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     // Private variables
     private float _respawnRate = 3.0f;
+    private float _noCollisionPeriod = 3.0f;
 
     // Public variables
     public Player player;
@@ -24,12 +25,23 @@ public class GameManager : MonoBehaviour
     }
 
     // Respawning player
-    public void Respawn()
+    private void Respawn()
     {
         // Reseting position
         this.player.gameObject.transform.position = Vector3.zero;
+        // Disable collisions for some seconds
+        this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
         // Reactivating player
         this.player.gameObject.SetActive(true);
+        // Invoking function to enable collisions
+        Invoke(nameof(TurnOnCollisions), _noCollisionPeriod);
+    }
+
+    // Enable again collisions
+    private void TurnOnCollisions()
+    {
+        // Set layer back to default
+        this.player.gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     // GameOver task
