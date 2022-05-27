@@ -8,9 +8,10 @@ public class Player : MonoBehaviour
     private float _torque = 0.0f;
 
     // Public variables (need "this." when using)
-    public float _thrustSpeed = 3.0f; 
-    public float _torqueSpeed = 0.1f;
+    public float thrustSpeed = 3.0f; 
+    public float torqueSpeed = 0.1f;
     public Bullet bulletPrefab;
+    public GameManager gameManager;
 
     // Awake is called at load time
     private void Awake() 
@@ -55,11 +56,11 @@ public class Player : MonoBehaviour
     {
         // Add thrust when it is on
         if(_thrust != 0.0f)
-            _rigidbody.AddForce(this.transform.up * _thrust * this._thrustSpeed);
+            _rigidbody.AddForce(this.transform.up * _thrust * this.thrustSpeed);
 
         // Add torque when it is on
         if(_torque != 0.0f)
-            _rigidbody.AddTorque(_torque * this._torqueSpeed);   
+            _rigidbody.AddTorque(_torque * this.torqueSpeed);   
     }
 
     private void OnCollisionEnter2D(Collision2D other) 
@@ -67,10 +68,10 @@ public class Player : MonoBehaviour
         // Check tag to find asteroid
         if(other.gameObject.tag == "Asteroid"){
             // Reseting speed
-            _ridigbody.velocity = Vector3.zero;
-            _ridigbody.angulaVelocity = 0.0f;
+            _rigidbody.velocity = Vector3.zero;
+            _rigidbody.angularVelocity = 0.0f;
             // Tell game manager that it died
-            // TODO
+            gameManager.PlayerDied();
             // Inactivate player 
             this.gameObject.SetActive(false);
         }        
