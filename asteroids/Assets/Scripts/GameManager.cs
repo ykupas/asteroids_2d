@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public ParticleSystem explosion;
     public int lives = 4;
+    public int score = 0;
 
     // Asteroid destruction for call particle effect
     public void AsteroidDestroyed(Asteroid asteroid)
@@ -17,8 +18,17 @@ public class GameManager : MonoBehaviour
         // Play particle effect
         this.explosion.transform.position = asteroid.transform.position;
         this.explosion.Play();
-        // Increase score
-        // TODO
+
+        // Check asteroid size to score
+        if(asteroid.size > 1.25){
+            // Large ones
+            score += 10;
+        } else{
+            // Small ones
+            score += 5;
+        }
+
+        // TODO: create a UI for score
     }
 
     // Player calling game manager saying it died
