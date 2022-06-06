@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         this.continueText.gameObject.SetActive(true);
         
         // Wait to press "Shoot"
-        while(!Input.GetKeyDown(KeyCode.Space));
+        // while(!Input.GetKeyDown(KeyCode.Space));
 
         // Load start menu
         Debug.Log("Game over");
