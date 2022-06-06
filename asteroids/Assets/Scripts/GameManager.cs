@@ -8,11 +8,26 @@ public class GameManager : MonoBehaviour
 
     // Public variables
     public Player player;
+    public ParticleSystem explosion;
     public int lives = 4;
+
+    // Asteroid destruction for call particle effect
+    public void AsteroidDestroyed(Asteroid asteroid)
+    {        
+        // Play particle effect
+        this.explosion.transform.position = asteroid.transform.position;
+        this.explosion.Play();
+        // Increase score
+        // TODO
+    }
 
     // Player calling game manager saying it died
     public void PlayerDied()
     {
+        // Play particle effect
+        this.explosion.transform.position = this.player.transform.position;
+        this.explosion.Play();
+        // Check lives count
         if(this.lives <= 0){
             GameOver();
         } else {
@@ -21,7 +36,6 @@ public class GameManager : MonoBehaviour
             // Call player respawn
             Invoke(nameof(Respawn), _respawnRate);
         }
-
     }
 
     // Respawning player
