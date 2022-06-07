@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,35 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text gameOverText;
     public Text continueText;
+
+    // Respawning player
+    private void Respawn()
+    {
+        // Reseting position
+        this.player.gameObject.transform.position = Vector3.zero;
+        // Disable collisions for some seconds
+        this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
+        // Reactivating player
+        this.player.gameObject.SetActive(true);
+
+        // Invoking function to enable collisions
+        Invoke(nameof(TurnOnCollisions), _noCollisionPeriod);
+    }
+
+    // Enable again collisions
+    private void TurnOnCollisions()
+    {
+        // Set layer back to default
+        this.player.gameObject.layer = LayerMask.NameToLayer("Player");
+    }
+
+    // Game over function
+    private void GameOver()
+    {
+        // Activate game over text UI
+        this.gameOverText.gameObject.SetActive(true);
+        this.continueText.gameObject.SetActive(true);
+    }
 
     // Asteroid destruction for call particle effect
     public void AsteroidDestroyed(Asteroid asteroid)
@@ -59,46 +89,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Respawning player
-    private void Respawn()
-    {
-        // Reseting position
-        this.player.gameObject.transform.position = Vector3.zero;
-        // Disable collisions for some seconds
-        this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
-        // Reactivating player
-        this.player.gameObject.SetActive(true);
-
-        // Invoking function to enable collisions
-        Invoke(nameof(TurnOnCollisions), _noCollisionPeriod);
-    }
-
-    // Enable again collisions
-    private void TurnOnCollisions()
-    {
-        // Set layer back to default
-        this.player.gameObject.layer = LayerMask.NameToLayer("Player");
-    }
-
-    // Game over function
-    private void GameOver()
-    {
-        // Activate game over text UI
-        this.gameOverText.gameObject.SetActive(true);
-        this.continueText.gameObject.SetActive(true);
-        
-        // Wait to press "Shoot"
-        // while(!Input.GetKeyDown(KeyCode.Space));
-
-        // Load start menu
-        Debug.Log("Game over");
-    }
-
     // Called at start up point
     public void Start()
     {
         // Update texts as it starts
         this.livesText.text = "Lives: x" + this.lives.ToString();
         this.scoreText.text = "Score: " + this.score.ToString();
+    }
+
+    // Load menu scene function
+    public void LoadMenu()
+    {
+        // Load previous index scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
