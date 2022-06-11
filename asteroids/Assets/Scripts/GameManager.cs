@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     // Public variables
     public Player player;
-    public ParticleSystem explosion;
+    public ParticleSystem explosionPrefab;
     public int lives = 3;
     public int score = 0;
     public Text livesText;
@@ -86,8 +86,9 @@ public class GameManager : MonoBehaviour
     public void AsteroidDestroyed(Asteroid asteroid)
     {        
         // Play particle effect
-        this.explosion.transform.position = asteroid.transform.position;
-        this.explosion.Play();
+        ParticleSystem explosion = Instantiate(this.explosionPrefab);
+        explosion.transform.position = asteroid.transform.position;
+        explosion.Play();
 
         // Check asteroid size to score
         if(asteroid.size > 1.25){
@@ -106,8 +107,9 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         // Play particle effect
-        this.explosion.transform.position = this.player.transform.position;
-        this.explosion.Play();
+        ParticleSystem explosion = Instantiate(this.explosionPrefab);
+        explosion.transform.position = this.player.transform.position;
+        explosion.Play();
 
         // Play player explosion
         // TODO: PLAY AUDIO
