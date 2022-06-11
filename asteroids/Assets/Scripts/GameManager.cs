@@ -111,9 +111,6 @@ public class GameManager : MonoBehaviour
         explosion.transform.position = this.player.transform.position;
         explosion.Play();
 
-        // Play player explosion
-        // TODO: PLAY AUDIO
-
         // Check lives count
         if(this.lives <= 0){
             GameOver();

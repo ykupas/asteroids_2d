@@ -48,11 +48,6 @@ public class Asteroid : MonoBehaviour
                 // Create 2 halfs of asteroid
                 CreateSplit();
                 CreateSplit();
-                // Play smaller explosion
-                // TODO: PLAY AUDIO
-            } else{
-                // Play lauder explosion
-                // TODO: PLAY AUDIO
             }
             // Call game manager to play particle effects
             FindObjectOfType<GameManager>().AsteroidDestroyed(this);
