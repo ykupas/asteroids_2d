@@ -154,3 +154,5 @@ MonoBehaviour:
   maxSize: 1.5
   speed: 7
   maxLifeTime: 30
+  bigExplosionAudio: {fileID: 8300000, guid: cd796af4488584e48b3111193cf2f42d, type: 3}
+  littleExplosionAudio: {fileID: 8300000, guid: 042b7dadd7337a246aee0804b7a3429f, type: 3}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -107,6 +108,9 @@ public class GameManager : MonoBehaviour
         // Play particle effect
         this.explosion.transform.position = this.player.transform.position;
         this.explosion.Play();
+
+        // Play player explosion
+        // TODO: PLAY AUDIO
 
         // Check lives count
         if(this.lives <= 0){

@@ -44,11 +44,15 @@ public class Asteroid : MonoBehaviour
         if(other.gameObject.tag == "Bullet")
         {
             // Check if asteroid size has at least 2 minSize asteroids
-            if((this.size * 0.5f) >= this.minSize)
-            {
+            if((this.size * 0.5f) >= this.minSize){
                 // Create 2 halfs of asteroid
                 CreateSplit();
                 CreateSplit();
+                // Play smaller explosion
+                // TODO: PLAY AUDIO
+            } else{
+                // Play lauder explosion
+                // TODO: PLAY AUDIO
             }
             // Call game manager to play particle effects
             FindObjectOfType<GameManager>().AsteroidDestroyed(this);
