@@ -3,7 +3,7 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     // Private variable
-    private float _timeToDestroy = 0.5f;
+    private float _timeToDestroy = 1.5f;
 
     // Start is called before the first frame update
     private void Start()
