@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public Text gameOverText;
     public Text continueText;
 
+    // Static variables
+    public static bool gameIsPaused = false;
+
     // Respawning player
     private void Respawn()
     {
@@ -45,6 +48,32 @@ public class GameManager : MonoBehaviour
         // Activate game over text UI
         this.gameOverText.gameObject.SetActive(true);
         this.continueText.gameObject.SetActive(true);
+    }
+
+    // Update every frame
+    private void Update() 
+    {
+        // Check if "ESC" button is pressed
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            // Check if game is paused
+            if(gameIsPaused){
+
+            } else{
+
+            }
+        }    
+    }
+
+    // Pause the game
+    private void Pause()
+    {
+        
+    }
+
+    // Resume from pause game
+    private void Resumo()
+    {
+
     }
 
     // Asteroid destruction for call particle effect
@@ -102,5 +131,12 @@ public class GameManager : MonoBehaviour
     {
         // Load previous index scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    // Reload game scene function
+    public void ReloadGame()
+    {
+        // Load previous index scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
