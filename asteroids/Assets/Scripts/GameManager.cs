@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour
     // Game over function
     private void GameOver()
     {
+        // Check high score and actual score
+        int highScore = PlayerPrefs.GetInt("HighScore", score);
+        if(highScore <= score){
+            PlayerPrefs.SetInt("HighScore", score);
+        }
         // Activate game over text UI
         this.gameOverText.gameObject.SetActive(true);
         this.continueText.gameObject.SetActive(true);
