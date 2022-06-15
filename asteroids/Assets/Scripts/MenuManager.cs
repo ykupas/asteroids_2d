@@ -8,6 +8,13 @@ public class MenuManager : MonoBehaviour
     public int initScore = 0;
     public Text highScoreTex;
 
+    // Public variables for Texts
+    public Text start;
+    public Text options;
+    public Text quit;
+    public Text resulution;
+    public Text back;
+
     // Start up function
     private void Start() 
     {
@@ -30,5 +37,25 @@ public class MenuManager : MonoBehaviour
         // Quit game
         Debug.Log("QUIT");
         Application.Quit();
+    }
+
+    // Load options menu
+    public void GoToOptions()
+    {
+        start.gameObject.SetActive(false);
+        options.gameObject.SetActive(false);
+        quit.gameObject.SetActive(false);
+        resulution.gameObject.SetActive(true);
+        back.gameObject.SetActive(true);
+    }
+
+    // Back to main menu
+    public void BackToMenu()
+    {
+        start.gameObject.SetActive(true);
+        options.gameObject.SetActive(true);
+        quit.gameObject.SetActive(true);
+        resulution.gameObject.SetActive(false);
+        back.gameObject.SetActive(false);
     }
 }
