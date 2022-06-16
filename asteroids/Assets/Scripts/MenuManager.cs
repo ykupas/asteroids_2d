@@ -29,10 +29,6 @@ public class MenuManager : MonoBehaviour
         int highScore = PlayerPrefs.GetInt("HighScore", initScore);
         // Updating high score text
         highScoreTex.text = "HIGH SCORE: " + highScore.ToString();
-        // Setting resolution to not fullscreen and 800x600
-        this.BackToMenu();
-        this.SetScreenSize(0);
-        this.SetFullscreen(false);
     }
 
     // Load game scene function
