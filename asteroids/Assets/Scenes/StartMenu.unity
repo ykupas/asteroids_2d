@@ -663,7 +663,7 @@ MonoBehaviour:
       - m_Target: {fileID: 339865247}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: SetFullscreen
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1207,7 +1207,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &938382553
@@ -1271,7 +1271,7 @@ MonoBehaviour:
       - m_Target: {fileID: 339865247}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: SetScreenSize
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
