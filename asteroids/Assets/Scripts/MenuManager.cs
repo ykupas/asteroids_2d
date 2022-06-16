@@ -29,6 +29,8 @@ public class MenuManager : MonoBehaviour
         int highScore = PlayerPrefs.GetInt("HighScore", initScore);
         // Updating high score text
         highScoreTex.text = "HIGH SCORE: " + highScore.ToString();
+        // Calling back to menu
+        this.BackToMenu();
     }
 
     // Load game scene function
