@@ -8,13 +8,15 @@ public class Boundary : MonoBehaviour
     public GameObject right;
     public GameObject left;
 
-    // Start is called before the first frame update
-    public void Start()
+    // Awake is called at load time
+    private void Awake()
     {
         // Get screen size in Vector3
         Vector3 viewPoint = new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z);
         // Pass it to world point Vector2
         Vector2 viewScreen = Camera.main.ScreenToWorldPoint(viewPoint);
+        Debug.Log(viewPoint);
+        Debug.Log(viewScreen);
         // Set boundaries positions
         this.top.transform.position = new Vector3(viewScreen.x, this.top.transform.position.y, 0f);
         this.bottom.transform.position = new Vector3(-viewScreen.x, this.bottom.transform.position.y, 0f);
