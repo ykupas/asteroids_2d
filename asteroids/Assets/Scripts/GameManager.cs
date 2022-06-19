@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         // Reseting position
         this.player.gameObject.transform.position = Vector3.zero;
-        // Disable collisions for some seconds
+        // Disable collisions for some seconds (boundaries are not ignored)
         this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
         // Reactivating player
         this.player.gameObject.SetActive(true);
