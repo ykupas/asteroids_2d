@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     // Private variables for screen size
-    private List<int> widths = new List<int>() {800, 1280, 1920};
-    private List<int> heights = new List<int>() {600, 800, 1080};
+    private List<int> widths = new List<int>() {1920, 800, 1280, 1920};
+    private List<int> heights = new List<int>() {1080, 600, 800, 1080};
     private bool _fullscreen;
     private int _width;
     private int _height;
@@ -32,6 +32,11 @@ public class MenuManager : MonoBehaviour
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         // Updating high score text
         this.highScoreText.text = "HIGH SCORE: " + highScore.ToString();
+        // Setting up screen to default
+        _fullscreen = true;
+        _width = 1920;
+        _height = 1080;
+        Screen.SetResolution(_width, _height, _fullscreen);
         // Calling back to menu
         this.BackToMenu();
     }

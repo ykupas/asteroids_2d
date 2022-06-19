@@ -673,7 +673,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &619113919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1260,8 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: 
+      m_Image: {fileID: 0}
     - m_Text: 800x600
       m_Image: {fileID: 0}
     - m_Text: 1280x800
