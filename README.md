@@ -20,7 +20,7 @@ Simple asteroids 2D game created and designed in Unity for learning purposes.
 
 ## Setup file
 
-![Download Asteroids2D Setup x86_64](https://github.com/ykupas/asteroids_2d/blob/main/Asteroids2D_Setup_x86_64.zip)
+[Download Asteroids2D Setup x86_64](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_Setup_x86_64.zip)
 
 ## Credits to Zigorous
 
