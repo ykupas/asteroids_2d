@@ -1,2 +1,11 @@
 # Asteroids 2D
-Asteroids game designed in Unity. Following the Zigurous tutorial: https://www.youtube.com/watch?v=cIeWhztKyAg
+
+Simple asteroids 2D game created and designed in Unity for learning purposes. 
+
+## Controls
+
+## Images
+
+## Setup file
+
+Created following Youtube channel Zigurous tutorial (all credits reserved). Link: https://www.youtube.com/watch?v=cIeWhztKyAg
