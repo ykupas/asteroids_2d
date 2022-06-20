@@ -44,8 +44,7 @@ public class Asteroid : MonoBehaviour
         if(other.gameObject.tag == "Bullet")
         {
             // Check if asteroid size has at least 2 minSize asteroids
-            if((this.size * 0.5f) >= this.minSize)
-            {
+            if((this.size * 0.5f) >= this.minSize){
                 // Create 2 halfs of asteroid
                 CreateSplit();
                 CreateSplit();
