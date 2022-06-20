@@ -20,4 +20,10 @@ Simple asteroids 2D game created and designed in Unity for learning purposes.
 
 ## Setup file
 
-Created following Youtube channel Zigurous tutorial (all credits reserved). Link: https://www.youtube.com/watch?v=cIeWhztKyAg
+![Download Asteroids2D Setup x86_64](https://github.com/ykupas/asteroids_2d/blob/main/Asteroids2D_Setup_x86_64.zip)
+
+## Credits to Zigorous
+
+Created following Youtube channel Zigurous tutorial (all credits reserved). 
+
+Link: https://www.youtube.com/watch?v=cIeWhztKyAg
