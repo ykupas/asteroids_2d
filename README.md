@@ -2,9 +2,21 @@
 
 Simple asteroids 2D game created and designed in Unity for learning purposes. 
 
+## Images
+
+![Gameplay1](https://github.com/ykupas/asteroids_2d/blob/feature/deploy/images/Gameplay1.png)
+
+![Gameplay2](https://github.com/ykupas/asteroids_2d/blob/feature/deploy/images/Gameplay2.png)
+
+![Game Over](https://github.com/ykupas/asteroids_2d/blob/feature/deploy/images/Gameover.png)
+
+![MainMenu](https://github.com/ykupas/asteroids_2d/blob/feature/deploy/images/MainMenu.png)
+
+![Options](https://github.com/ykupas/asteroids_2d/blob/feature/deploy/images/Options.png)
+
 ## Controls
 
-## Images
+![Controls](https://github.com/ykupas/asteroids_2d/blob/feature/deploy/images/Controls.png)
 
 ## Setup file
 
