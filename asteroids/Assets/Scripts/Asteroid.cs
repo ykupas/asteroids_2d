@@ -49,8 +49,6 @@ public class Asteroid : MonoBehaviour
                 CreateSplit();
                 CreateSplit();
             }
-            // Call game manager to play particle effects
-            FindObjectOfType<GameManager>().AsteroidDestroyed(this);
             // Destroy actual asteroid
             Destroy(this.gameObject);
         }

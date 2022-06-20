@@ -1,7 +1,10 @@
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+=======
+>>>>>>> 92d36b0329c3628d1a464f27677d520603829233
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     // Public variables
     public Player player;
+<<<<<<< HEAD
     public ParticleSystem explosionPrefab;
     public int lives = 3;
     public int score = 0;
@@ -22,6 +26,23 @@ public class GameManager : MonoBehaviour
 
     // Static variables
     public static bool gameIsPaused = false;
+=======
+    public int lives = 4;
+
+    // Player calling game manager saying it died
+    public void PlayerDied()
+    {
+        if(this.lives <= 0){
+            GameOver();
+        } else {
+            // Less one live
+            this.lives--;
+            // Call player respawn
+            Invoke(nameof(Respawn), _respawnRate);
+        }
+
+    }
+>>>>>>> 92d36b0329c3628d1a464f27677d520603829233
 
     // Respawning player
     private void Respawn()
@@ -32,7 +53,6 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
         // Reactivating player
         this.player.gameObject.SetActive(true);
-
         // Invoking function to enable collisions
         Invoke(nameof(TurnOnCollisions), _noCollisionPeriod);
     }
@@ -44,9 +64,10 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
-    // Game over function
+    // GameOver task
     private void GameOver()
     {
+<<<<<<< HEAD
         // Check high score and actual score
         int highScore = PlayerPrefs.GetInt("HighScore", score);
         if(highScore <= score){
@@ -129,11 +150,16 @@ public class GameManager : MonoBehaviour
             // Call player respawn
             Invoke(nameof(Respawn), _respawnRate);
         }
+=======
+        // TODO
+
+>>>>>>> 92d36b0329c3628d1a464f27677d520603829233
     }
 
-    // Called at start up point
-    public void Start()
+    // Start is called before the first frame update
+    private void Start()
     {
+<<<<<<< HEAD
         // Update texts as it starts
         this.livesText.text = "Lives: x" + this.lives.ToString();
         this.scoreText.text = "Score: " + this.score.ToString();
@@ -153,5 +179,14 @@ public class GameManager : MonoBehaviour
     {
         // Load previous index scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+=======
+        
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        
+>>>>>>> 92d36b0329c3628d1a464f27677d520603829233
     }
 }
