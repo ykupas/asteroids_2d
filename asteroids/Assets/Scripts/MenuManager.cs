@@ -38,8 +38,12 @@ public class MenuManager : MonoBehaviour
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         // Updating high score text
         this.highScoreText.text = "HIGH SCORE: " + highScore.ToString();
+
         // Calling back to menu
         this.BackToMenu();
+
+        //TODO: Set options to PlayerPrefs values or default values
+
     }
 
     // Load game scene function
@@ -60,9 +64,14 @@ public class MenuManager : MonoBehaviour
     // Load options menu
     public void GoToOptions()
     {
+        // Disable main menu
         this.start.gameObject.SetActive(false);
         this.options.gameObject.SetActive(false);
         this.quit.gameObject.SetActive(false);
+
+        //TODO: Set options to PlayerPrefs values
+
+        // Enable options menu
         this.back.gameObject.SetActive(true);
         this.apply.gameObject.SetActive(true);
         this.resulution.gameObject.SetActive(true);
@@ -71,15 +80,18 @@ public class MenuManager : MonoBehaviour
         this.rotationText.gameObject.SetActive(true);
         this.rotationSlider.gameObject.SetActive(true);
         this.thrustText.gameObject.SetActive(true);
-        this.thrustSlider.gameObject.SetActive(true);
+        this.thrustSlider.gameObject.SetActive(true);        
     }
 
     // Back to main menu
     public void BackToMenu()
     {
+        // Enable main menu
         this.start.gameObject.SetActive(true);
         this.options.gameObject.SetActive(true);
         this.quit.gameObject.SetActive(true);
+
+        // Disable options menu
         this.back.gameObject.SetActive(false);
         this.apply.gameObject.SetActive(false);
         this.resulution.gameObject.SetActive(false);
@@ -119,8 +131,17 @@ public class MenuManager : MonoBehaviour
     // Apply screen resolution modifications
     public void ApplyScreenResolution()
     {
+        //TODO: Store options values 
+
+        // Set options values
         Screen.SetResolution(_width, _height, _fullscreen);
         PlayerPrefs.SetFloat("RotationSpeed", _rotationSpeed);
         PlayerPrefs.SetFloat("ThrustSpeed", _thrustSpeed);
+    }
+
+    // Default button action
+    public void DefaultOptions()
+    {
+        //TODO: Set all options values to default
     }
 }

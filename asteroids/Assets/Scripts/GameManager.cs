@@ -134,6 +134,8 @@ public class GameManager : MonoBehaviour
     // Called at start up point
     public void Start()
     {
+        //TODO: Load player options values
+        
         // Update texts as it starts
         this.livesText.text = "Lives: x" + this.lives.ToString();
         this.scoreText.text = "Score: " + this.score.ToString();
