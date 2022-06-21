@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
         // Reactivating player
         this.player.gameObject.SetActive(true);
+
         // Invoking function to enable collisions
         Invoke(nameof(TurnOnCollisions), _noCollisionPeriod);
     }
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
-    // GameOver task
+    // Game over function
     private void GameOver()
     {
         // Check high score and actual score
@@ -130,8 +131,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    private void Start()
+    // Called at start up point
+    public void Start()
     {
         // Update texts as it starts
         this.livesText.text = "Lives: x" + this.lives.ToString();
