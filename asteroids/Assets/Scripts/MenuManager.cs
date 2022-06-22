@@ -23,6 +23,7 @@ public class MenuManager : MonoBehaviour
     public Text quit;
     public Text back;
     public Text apply;
+    public Text defaultValues;
     public Text resulution;
     public Dropdown resulutionDropdown;
     public Toggle fullscreen;
@@ -74,6 +75,7 @@ public class MenuManager : MonoBehaviour
         // Enable options menu
         this.back.gameObject.SetActive(true);
         this.apply.gameObject.SetActive(true);
+        this.defaultValues.gameObject.SetActive(true);
         this.resulution.gameObject.SetActive(true);
         this.resulutionDropdown.gameObject.SetActive(true);
         this.fullscreen.gameObject.SetActive(true);
@@ -94,6 +96,7 @@ public class MenuManager : MonoBehaviour
         // Disable options menu
         this.back.gameObject.SetActive(false);
         this.apply.gameObject.SetActive(false);
+        this.defaultValues.gameObject.SetActive(false);
         this.resulution.gameObject.SetActive(false);
         this.resulutionDropdown.gameObject.SetActive(false);
         this.fullscreen.gameObject.SetActive(false);
