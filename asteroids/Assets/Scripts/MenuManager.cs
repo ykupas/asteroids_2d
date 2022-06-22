@@ -65,12 +65,22 @@ public class MenuManager : MonoBehaviour
     // Load options menu
     public void GoToOptions()
     {
+        // Check fullscreen toggle value and set it
+        if(PlayerPrefs.GetInt("Fullscreen", 1) == 1){
+            this.fullscreen.isOn = true;
+        }else{
+            this.fullscreen.isOn = false;
+        }
+
+        //TODO: Set dropdown value
+        //CHANGE: Use index
+
+        //TODO: Set sliders values
+
         // Disable main menu
         this.start.gameObject.SetActive(false);
         this.options.gameObject.SetActive(false);
         this.quit.gameObject.SetActive(false);
-
-        //TODO: Set options to PlayerPrefs values
 
         // Enable options menu
         this.back.gameObject.SetActive(true);
@@ -109,6 +119,7 @@ public class MenuManager : MonoBehaviour
     // Set screen size
     public void SetScreenSize(int index)
     {
+        //CHANGE: Store index
         _width = widths[index];
         _height = heights[index];
     }
@@ -134,12 +145,25 @@ public class MenuManager : MonoBehaviour
     // Apply screen resolution modifications
     public void ApplyScreenResolution()
     {
-        //TODO: Store options values 
+        // Store resolutions options values 
+        //CHANGE: Store index
+        PlayerPrefs.SetInt("Width", _width);
+        PlayerPrefs.SetInt("Height", _height);
 
-        // Set options values
-        Screen.SetResolution(_width, _height, _fullscreen);
+        // Check and store fullscreen (does not have SetBool in PlayerPrefs)
+        if(_fullscreen){
+            PlayerPrefs.SetInt("Fullscreen", 1);
+        }else{
+            PlayerPrefs.SetInt("Fullscreen", 0);
+        }
+
+        // Store player options values
         PlayerPrefs.SetFloat("RotationSpeed", _rotationSpeed);
         PlayerPrefs.SetFloat("ThrustSpeed", _thrustSpeed);
+
+        // Set options values
+        //CHANGE: Use index
+        Screen.SetResolution(_width, _height, _fullscreen);
     }
 
     // Default button action
