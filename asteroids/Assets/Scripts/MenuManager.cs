@@ -165,6 +165,13 @@ public class MenuManager : MonoBehaviour
     // Default button action
     public void DefaultOptions()
     {
-        //TODO: Set all options values to default
+        // Set all options values to default
+        _index = 0;
+        _fullscreen = true;
+        _rotationSpeed = 0.1f;
+        _thrustSpeed = 3f;
+
+        // Call apply
+        ApplyScreenResolution();
     }
 }
