@@ -41,9 +41,6 @@ public class MenuManager : MonoBehaviour
 
         // Calling back to menu
         this.BackToMenu();
-
-        //TODO: Set options to PlayerPrefs values or default values
-
     }
 
     // Load game scene function
@@ -75,7 +72,11 @@ public class MenuManager : MonoBehaviour
         _index = PlayerPrefs.GetInt("ResolutionIndex", 0);
         this.resulutionDropdown.value = _index;
 
-        //TODO: Set sliders values
+        // Set sliders values
+        _rotationSpeed = PlayerPrefs.GetFloat("RotationSpeed", 0.1f);
+        this.rotationSlider.value = _rotationSpeed;
+        _thrustSpeed = PlayerPrefs.GetFloat("ThrustSpeed", 10f);
+        this.thrustSlider.value = _thrustSpeed;
 
         // Disable main menu
         this.start.gameObject.SetActive(false);
