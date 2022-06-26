@@ -173,5 +173,8 @@ public class MenuManager : MonoBehaviour
 
         // Call apply
         ApplyScreenResolution();
+        
+        // Call options window again
+        GoToOptions();
     }
 }
