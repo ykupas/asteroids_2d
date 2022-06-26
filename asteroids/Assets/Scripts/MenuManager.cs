@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     // Private variables for screen size
-    private List<int> widths = new List<int>() {1920, 800, 1280, 1920};
-    private List<int> heights = new List<int>() {1080, 600, 800, 1080};
+    private List<int> widths = new List<int>() {800, 1280, 1920};
+    private List<int> heights = new List<int>() {600, 800, 1080};
+    private int _index;
     private bool _fullscreen;
-    private int _width;
-    private int _height;
     private float _rotationSpeed;
     private float _thrustSpeed;
 
@@ -72,8 +71,9 @@ public class MenuManager : MonoBehaviour
             this.fullscreen.isOn = false;
         }
 
-        //TODO: Set dropdown value
-        //CHANGE: Use index
+        // Set dropdown value
+        _index = PlayerPrefs.GetInt("ResolutionIndex", 0);
+        this.resulutionDropdown.value = _index;
 
         //TODO: Set sliders values
 
@@ -116,12 +116,10 @@ public class MenuManager : MonoBehaviour
         this.thrustSlider.gameObject.SetActive(false);
     }
 
-    // Set screen size
+    // Set screen size index
     public void SetScreenSize(int index)
     {
-        //CHANGE: Store index
-        _width = widths[index];
-        _height = heights[index];
+        _index = index;
     }
 
     // Set fullscreen function
@@ -146,9 +144,7 @@ public class MenuManager : MonoBehaviour
     public void ApplyScreenResolution()
     {
         // Store resolutions options values 
-        //CHANGE: Store index
-        PlayerPrefs.SetInt("Width", _width);
-        PlayerPrefs.SetInt("Height", _height);
+        PlayerPrefs.SetInt("ResolutionIndex", _index);
 
         // Check and store fullscreen (does not have SetBool in PlayerPrefs)
         if(_fullscreen){
@@ -162,8 +158,7 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetFloat("ThrustSpeed", _thrustSpeed);
 
         // Set options values
-        //CHANGE: Use index
-        Screen.SetResolution(_width, _height, _fullscreen);
+        Screen.SetResolution(widths[_index], heights[_index], _fullscreen);
     }
 
     // Default button action
