@@ -74,8 +74,8 @@ public class MenuManager : MonoBehaviour
 
         // Set sliders values
         _rotationSpeed = PlayerPrefs.GetFloat("RotationSpeed", 0.1f);
+        _thrustSpeed = PlayerPrefs.GetFloat("ThrustSpeed", 3f);
         this.rotationSlider.value = _rotationSpeed;
-        _thrustSpeed = PlayerPrefs.GetFloat("ThrustSpeed", 10f);
         this.thrustSlider.value = _thrustSpeed;
 
         // Disable main menu
