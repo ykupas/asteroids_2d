@@ -18,9 +18,13 @@ Simple asteroids 2D game created and designed in Unity for learning purposes.
 
 ![Controls](https://github.com/ykupas/asteroids_2d/blob/main/images/Controls.png)
 
-## Setup file
+## Download files
 
-[Download Asteroids2D Setup x86_64](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_Setup_x86_64.zip)
+[v1.0.0 W10 x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.0.0_W10_x86.zip)
+[v1.1.0 W10 x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.1.0_W10_x86.zip)
+[v1.1.0 Linux x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.1.0_Linux_x86.zip)
+[v1.1.0 macOS Intel 64](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.1.0_macOS_Intel64.zip)
+[v1.1.0 macOS Apple Silicon](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.1.0_macOS_AppleSilicon.zip)
 
 ## Credits to Zigorous
 
