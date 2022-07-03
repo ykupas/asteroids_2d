@@ -5,11 +5,11 @@ public class Player : MonoBehaviour
     // Private variables 
     private Rigidbody2D _rigidbody;
     private float _thrust = 0.0f;        // (Thrust = Impulso)
-    private float _torque = 0.0f;
+    private float _rotation = 0.0f;
+    private float _thrustSpeed; 
+    private float _rotationSpeed;
 
-    // Public variables (need "this." when using)
-    public float thrustSpeed = 3.0f; 
-    public float torqueSpeed = 0.1f;
+    // Public variables (need "this." when using)    
     public Bullet bulletPrefab;
     public GameManager gameManager;
 
@@ -18,6 +18,14 @@ public class Player : MonoBehaviour
     {
         // Attach ridigbody from Player Game Object
         _rigidbody = this.GetComponent<Rigidbody2D>();
+
+        // Getting speed values stored
+        _rotationSpeed = PlayerPrefs.GetFloat("RotationSpeed", 0.1f);
+        _thrustSpeed = PlayerPrefs.GetFloat("ThrustSpeed", 3f);
+
+        // Initiating values
+        _thrust = 0.0f;
+        _rotation = 0.0f;
     }
 
     // Update is called once per frame
@@ -35,13 +43,13 @@ public class Player : MonoBehaviour
 
         // Check  left arrow for positive torque
         if(Input.GetKey(KeyCode.LeftArrow))
-            _torque = 1.0f;
+            _rotation = 1.0f;
         // Check right arrow negative torque
         else if(Input.GetKey(KeyCode.RightArrow))
-            _torque = -1.0f;
+            _rotation = -1.0f;
         // If neither is pressed, torque is off
         else
-            _torque = 0.0f;
+            _rotation = 0.0f;
 
         // Check if shoot is pressed
         if(Input.GetKeyDown(KeyCode.Space))
@@ -56,11 +64,11 @@ public class Player : MonoBehaviour
     {
         // Add thrust when it is on
         if(_thrust != 0.0f)
-            _rigidbody.AddForce(this.transform.up * _thrust * this.thrustSpeed);
+            _rigidbody.AddForce(this.transform.up * _thrust * _thrustSpeed);
 
         // Add torque when it is on
-        if(_torque != 0.0f)
-            _rigidbody.AddTorque(_torque * this.torqueSpeed);   
+        if(_rotation != 0.0f)
+            _rigidbody.AddTorque(_rotation * _rotationSpeed);   
     }
 
     private void OnCollisionEnter2D(Collision2D other) 
