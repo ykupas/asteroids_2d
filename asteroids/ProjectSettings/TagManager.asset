@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Asteroid
   - Bullet
+  - Powerup
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - Player
   - Bullet
   - Asteroid
+  - Powerup
   - Boundary
   - IgnoreCollisions
-  - 
   - 
   - 
   - 
