@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     // Private variables
     private float _respawnRate = 3.0f;
     private float _noCollisionPeriod = 3.0f;
-    private int _scoreMult = 1;
-    private float _scoreMultRate = 15.0f;
 
     // Public variables
     public Player player;
@@ -73,12 +71,6 @@ public class GameManager : MonoBehaviour
         }    
     }
 
-    // Stop multiplier power-up
-    private void StopMult()
-    {
-        _scoreMult = 1;
-    }
-
     // Pause the game
     public void Pause()
     {
@@ -106,43 +98,16 @@ public class GameManager : MonoBehaviour
         // Check asteroid size to score
         if(asteroid.size > 1.25){
             // Large ones
-            this.score += 10*_scoreMult;
+            this.score += 10;
         } else{
             // Small ones
-            this.score += 5*_scoreMult;
+            this.score += 5;
         }
 
         // Update UI for score
         this.scoreText.text = "Score: " + this.score.ToString();
     }
 
-    // Power up life task
-    public void PowerupLife()
-    {
-        // Update lives 
-        this.lives++;
-        this.livesText.text = "Lives: x" + this.lives.ToString();
-        
-    }
-
-    // Power up multiplier task
-    public void PowerupMult()
-    {
-        // Change multiplier
-        _scoreMult = 2;
-        // Invoke task
-        Invoke(nameof(StopMult), _scoreMultRate);
-    }
-
-    // Power up no collision task
-    public void NoCollision()
-    {
-        // Disable collisions for some seconds (boundaries are not ignored)
-        this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
-        // Invoking function to enable collisions
-        Invoke(nameof(TurnOnCollisions), _noCollisionPeriod * 3f);
-    }
-    
     // Player calling game manager saying it died
     public void PlayerDied()
     {
@@ -168,7 +133,9 @@ public class GameManager : MonoBehaviour
 
     // Called at start up point
     public void Start()
-    {       
+    {
+        //TODO: Load player options values
+        
         // Update texts as it starts
         this.livesText.text = "Lives: x" + this.lives.ToString();
         this.scoreText.text = "Score: " + this.score.ToString();
