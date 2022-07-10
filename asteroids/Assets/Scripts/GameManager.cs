@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private float _respawnRate = 3.0f;
     private float _noCollisionPeriod = 3.0f;
     private int _scoreMult = 1;
-    private float _scoreMultRate = 15.0f;
+    private float _scoreMultRate = 30.0f;
 
     // Public variables
     public Player player;
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
         // Disable collisions for some seconds (boundaries are not ignored)
         this.player.gameObject.layer = LayerMask.NameToLayer("IgnoreCollisions");
         // Invoking function to enable collisions
-        Invoke(nameof(TurnOnCollisions), _noCollisionPeriod * 3f);
+        Invoke(nameof(TurnOnCollisions), _noCollisionPeriod * 6f);
     }
     
     // Player calling game manager saying it died
