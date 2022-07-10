@@ -35,7 +35,7 @@ public class MenuManager : MonoBehaviour
     private void Start() 
     {
         // Set resolution to WebGL
-        // Screen.SetResolution(960, 600, false);
+        Screen.SetResolution(960, 600, false);
         // Checking high score
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
         // Updating high score text
@@ -161,7 +161,7 @@ public class MenuManager : MonoBehaviour
         PlayerPrefs.SetFloat("ThrustSpeed", _thrustSpeed);
 
         // Set options values
-        Screen.SetResolution(widths[_index], heights[_index], _fullscreen); 
+        // Screen.SetResolution(widths[_index], heights[_index], _fullscreen); 
     }
 
     // Default button action
