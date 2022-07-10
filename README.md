@@ -8,8 +8,8 @@ SIMMER link: https://simmer.io/@ykupas/asteroids2d
 
 ## Download links
 
-[Windows 10 x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.2.0_W10_x86.zip)  
-[Linux x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.2.0_Linux_x86.zip)  
+[Windows 10 x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.2.1_W10.zip)  
+[Linux x86](https://github.com/ykupas/asteroids_2d/raw/main/Asteroids2D_1.2.1_Linux.zip)  
 
 ## Images
 
