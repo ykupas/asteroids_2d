@@ -4,7 +4,7 @@ public class PowerupSpawner : MonoBehaviour
 {
     // Public variables
     public Powerup powerupPrefab;
-    public float spawnRate = 20.0f;
+    public float spawnRate = 150.0f;
     public float spawnDistance = 15.0f;
     public float spawnTrajectoryVariance = 15.0f;
     public int spawnAmount = 1;
